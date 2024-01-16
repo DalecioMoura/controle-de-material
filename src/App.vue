@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="div-principal">
     <div id="div-header">
       <h1>CONTROLE DE MATERIAL</h1>
       <div id="icone"><IconeLogin :usuario="dados_login" @logout="logout"/></div>     
@@ -31,7 +31,6 @@
   import Footer from './components/footer.vue';
   import FormLoginCadastro from './components/FormLoginCadastro.vue';
   import router from './router';
-  import main from './main';
   
   export default{
     name: "App",
@@ -92,7 +91,14 @@
 }
 /*<!--div id="div-header" style="display: flex; background-color: aquamarine; box-sizing: border-box; border-bottom: 4px solid #555; height: 100px;
     justify-content: center; text-align: center; padding: 10px;"-->*/
+
+#div-principal{
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
 #div-header{
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: flex-end;
