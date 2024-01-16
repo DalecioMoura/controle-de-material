@@ -1,5 +1,5 @@
 <template>  
-    <div>
+    <div id="div-principal">
         <Menu />
         <div id="div-form" v-show="!exibirComponente">
             <FormPrincipal msg="Editar Material" :rota="habilitar_componente" :edite="estado" @enviaDados="recebeDados" />
@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+#div-principal{
+    margin-bottom: 30px;
+}
+
 #div-form{
     display: inline-block;
 }

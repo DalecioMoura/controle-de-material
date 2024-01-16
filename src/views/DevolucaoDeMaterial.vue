@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="div-principal">
         <Menu />
         <div id="div-form" v-show="!estado">
             <FormPrincipal msg="Devolução de Material" :rota="habilitar_componente" @enviaDados="recebeDados" />
@@ -46,6 +46,10 @@
 </script>
 
 <style scoped>
+#div-principal{
+    margin-bottom: 30px;
+}
+
     #div-form{
         display: inline-block;
         text-align: right;
