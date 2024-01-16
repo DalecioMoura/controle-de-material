@@ -207,7 +207,8 @@ import { renderSlot } from 'vue'
                 let msg = ''
                 const dados = {
                     "st":"Indisponível",
-                    "nome":"Dalecio",
+                    "nome":sessionStorage.apelido,
+                    "matricula":sessionStorage.matricula,
                     "destino":this.destino,
                     "data":moment().format("DD/MM/YYYY")
                 }
@@ -220,7 +221,11 @@ import { renderSlot } from 'vue'
                 }
                 if(id != ''){
                     const dadosJson = JSON.stringify({status:dados})
-                    
+                    console.log(dados.nome)
+                    console.log(dados.matricula)
+                    console.log(dados[2])
+                    console.log(dados[3])
+                    console.log(dadosJson)
                     const req = await fetch(`https://apicontroledematerial.onrender.com/api/item/${id}`,{
                         method: "PATCH",
                         headers:{"Content-Type":"application/json"},
@@ -247,6 +252,7 @@ import { renderSlot } from 'vue'
                 const dados = {
                     "st":"Disponível",
                     "nome":"",
+                    "matricula":"",
                     "destino":"",
                     "data":""
                 }

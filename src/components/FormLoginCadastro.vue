@@ -86,6 +86,8 @@
                         }
                     }
                 }
+                sessionStorage.apelido = this.apelido
+                sessionStorage.matricula = this.matricula
                 this.$emit('enviaDados', [this.matricula, this.nome, this.apelido, this.setor, resultado, msg])
             },
 

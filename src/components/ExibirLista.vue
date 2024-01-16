@@ -25,6 +25,7 @@
             <div v-if="item.st" class="linha">
                 <div class="">{{item.st.st}}</div>
                 <div class="">{{item.st.nome}}</div>
+                <div class="">{{item.st.matricula}}</div>
                 <div class="">{{item.st.destino}}</div>
                 <div class="">{{item.st.data}}</div>
             </div>
