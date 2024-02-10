@@ -1,0 +1,529 @@
+{
+  "funcionarios": [
+    {
+      "matricula": "268643",
+      "nome": "Dalecio dos Santos Moura",
+      "apelido": "Dalecio",
+      "setor": "OONFA.C",
+      "id": 1
+    },
+    {
+      "matricula": "268644",
+      "nome": "Marcos David Sampaio",
+      "apelido": "David",
+      "setor": "OONFA.C",
+      "id": 2
+    },
+    {
+      "matricula": "261076",
+      "nome": "Glesriston Cardoso Félix",
+      "apelido": "Gleriston",
+      "setor": "OONFA.C",
+      "id": 3
+    },
+    {
+      "matricula": "268646",
+      "nome": "Hiderlano Gonzaga Alves",
+      "apelido": "Hiderlano",
+      "setor": "OONFA.C",
+      "id": 4
+    },
+    {
+      "matricula": "257821",
+      "nome": "Ion Daian de Sousa das Chagas",
+      "apelido": "Ion",
+      "setor": "OONFA.C",
+      "id": 5
+    },
+    {
+      "matricula": "260914",
+      "nome": "Josedek Lopes dos Santos",
+      "apelido": "Josedek",
+      "setor": "OONFA.C",
+      "id": 6
+    },
+    {
+      "matricula": "268649",
+      "nome": "Douglas da Silva Tude",
+      "apelido": "Douglas",
+      "setor": "OONFA.C",
+      "id": 7
+    },
+    {
+      "matricula": "268641",
+      "nome": "Main Monteiro Melo",
+      "apelido": "Main",
+      "setor": "OONFA.C",
+      "id": 8
+    },
+    {
+      "matricula": "268642",
+      "nome": "Danilton de Oliveira Azevedo",
+      "apelido": "Danilton",
+      "setor": "OONFA.C",
+      "id": 9
+    },
+    {
+      "matricula": "268640",
+      "nome": "Bruno Faustino de Sena",
+      "apelido": "Bruno",
+      "setor": "OONFA.C",
+      "id": 10
+    },
+    {
+      "nome": "Karen Chaves de Araújo",
+      "matricula": "268650",
+      "apelido": "Karen",
+      "setor": "OONFA.C",
+      "id": 11
+    },
+    {
+      "matricula": "268651",
+      "nome": "Antônio Fabrízio Martins Caldas",
+      "apelido": "Fabrízio",
+      "setor": "OONFA.C",
+      "id": 12
+    },
+    {
+      "matricula": "268652",
+      "nome": "Cláudio Lins Soares",
+      "apelido": "Cláudio",
+      "setor": "OONFA.C",
+      "id": 13
+    }
+  ],
+  "materiais": [
+    {
+      "codigo": "333",
+      "tipo": "Notebook",
+      "local": "131335",
+      "n_serie": "1253",
+      "modelo": "a12",
+      "fabricante": "Dell",
+      "descricao": "",
+      "status": {
+        "st": "Indisponível",
+        "nome": "Dalecio",
+        "destino": "MND",
+        "data": "01/12/2023"
+      },
+      "id": 1
+    },
+    {
+      "codigo": "334",
+      "tipo": "Extensão",
+      "local": "131332",
+      "n_serie": "1256",
+      "modelo": "b13",
+      "fabricante": "Tramontina",
+      "descricao": "",
+      "status": {
+        "st": "Indisponível",
+        "nome": "Dalecio",
+        "destino": "ALX",
+        "data": "28/11/2023"
+      },
+      "id": 2
+    },
+    {
+      "codigo": "335",
+      "tipo": "Relé de Proteção",
+      "local": "122331",
+      "n_serie": "1326",
+      "modelo": "7sa82",
+      "fabricante": "Siemens",
+      "descricao": "",
+      "status": {
+        "st": "Indisponível",
+        "nome": "Dalecio",
+        "destino": "AUD",
+        "data": "24/11/2023"
+      },
+      "id": 3
+    },
+    {
+      "codigo": "336",
+      "tipo": "Unidade de Controle",
+      "local": "113224",
+      "n_serie": "3215",
+      "modelo": "REC670",
+      "fabricante": "ABB",
+      "descricao": "",
+      "status": {
+        "st": "Indisponível",
+        "nome": "Main",
+        "destino": "MLG",
+        "data": "15/11/2023"
+      },
+      "id": 4
+    },
+    {
+      "codigo": "337",
+      "tipo": "Oscilórafo",
+      "local": "123332",
+      "n_serie": "3165",
+      "modelo": "e16",
+      "fabricante": "Reason",
+      "descricao": "",
+      "status": {
+        "st": "Indisponível",
+        "nome": "Dalecio",
+        "destino": "AQD",
+        "data": "10/11/203"
+      },
+      "id": 5
+    },
+    {
+      "codigo": "12253",
+      "tipo": "Fonte de alimentação",
+      "local": "100120",
+      "n_serie": "000",
+      "modelo": "ooo",
+      "fabricante": "Siemens",
+      "descricao": "Fonte de Alimentação relé de proteção 7sl27",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 6
+    },
+    {
+      "codigo": "339",
+      "tipo": "Notebook",
+      "local": "113224",
+      "n_serie": "5514",
+      "modelo": "a12",
+      "fabricante": "Dell",
+      "descricao": "Notebook de uso geral. i7, 8 GB de memória Ram, Hd de 1 T.",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 7
+    },
+    {
+      "codigo": "340",
+      "tipo": "Relé de Proteção",
+      "local": "122331",
+      "n_serie": "44846",
+      "modelo": "7sj62",
+      "fabricante": "Siemens",
+      "descricao": "Relé de Proteção de sobrecorrente",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 8
+    },
+    {
+      "codigo": "11002",
+      "tipo": "notebook",
+      "local": "10100",
+      "n_serie": "44040404",
+      "modelo": "inspirion",
+      "fabricante": "dell",
+      "descricao": "Notebook i7, windows 10, 16 Gb de RAM, ssd de 1 Tb",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 9
+    },
+    {
+      "codigo": "1101100",
+      "tipo": "Caixa de Teste",
+      "local": "1101100",
+      "n_serie": "330022",
+      "modelo": "ffslsl",
+      "fabricante": "Omicron",
+      "descricao": "Caixa de testes Omicron",
+      "status": {
+        "st": "Indisponível",
+        "nome": "Dalecio",
+        "destino": "RSD",
+        "data": "30/11/2023"
+      },
+      "id": 10
+    },
+    {
+      "codigo": "10101011",
+      "tipo": "caixa de teste",
+      "local": "10101011",
+      "n_serie": "ddlkkf",
+      "modelo": "eepepep",
+      "fabricante": "double",
+      "descricao": "Caixa de testes Double",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 11
+    },
+    {
+      "codigo": "3334",
+      "tipo": "Notebook",
+      "local": "100100",
+      "n_serie": "122121",
+      "modelo": "Latitude",
+      "fabricante": "Dell",
+      "descricao": "Notebook Dell Latitude core i9 com 16 GB de memória RAM, Nvme de 1TB e Placa de vídeo Gerfoce 3050",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 12
+    },
+    {
+      "codigo": "3436",
+      "tipo": "extensão",
+      "local": "1100112",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 13
+    },
+    {
+      "codigo": "100200",
+      "tipo": "Extensão",
+      "local": "110011",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "Extensão monofáica 12 m.",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 14
+    },
+    {
+      "codigo": "100122",
+      "tipo": "Extensão",
+      "local": "112211",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 15
+    },
+    {
+      "codigo": "202020",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 16
+    },
+    {
+      "codigo": "110010",
+      "tipo": "Extensão",
+      "local": "110101",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 17
+    },
+    {
+      "codigo": "1100119",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 18
+    },
+    {
+      "codigo": "298822",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 19
+    },
+    {
+      "codigo": "898989",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 20
+    },
+    {
+      "codigo": "556655",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 21
+    },
+    {
+      "codigo": "454545",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 22
+    },
+    {
+      "codigo": "332233",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 23
+    },
+    {
+      "codigo": "3338",
+      "tipo": "teste",
+      "local": "teste",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 24
+    },
+    {
+      "codigo": "",
+      "tipo": "",
+      "local": "",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 25
+    },
+    {
+      "codigo": " ",
+      "tipo": "",
+      "local": "",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 26
+    },
+    {
+      "codigo": "  ",
+      "tipo": "",
+      "local": "",
+      "n_serie": "",
+      "modelo": "",
+      "fabricante": "",
+      "descricao": "",
+      "status": {
+        "st": "Disponível",
+        "nome": "",
+        "destino": "",
+        "data": ""
+      },
+      "id": 27
+    }
+  ]
+}
