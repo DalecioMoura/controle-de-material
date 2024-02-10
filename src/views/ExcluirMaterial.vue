@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="div-principal">
         <Menu />
         <div id="div-form">
             <FormPrincipal msg="Excluir Material" :rota="habilitar_componente" @enviaDados="recebeDados" />
@@ -30,7 +30,6 @@ import router from '@/router';
 
         methods: {
             recebeDados(arg){
-                console.log(arg)
                 this.itens = arg[0]
                 this.msg = arg[1]
                 this.estado = arg[2]
@@ -47,6 +46,10 @@ import router from '@/router';
 </script>
 
 <style scoped>
+#div-principal{
+    margin-bottom: 30px;
+}
+
 #div-form{
     display: inline-block;
 }

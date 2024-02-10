@@ -42,14 +42,23 @@
         },
         methods:{
             async enviarDados(){
-                const req = await fetch('http://localhost:3000/api/usuarios')
+                const req = await fetch('https://apicontroledematerial.onrender.com/api/usuarios')
                 const res = await req.json()
+                console.log(res.result)
                 if(this.acao == 'login'){
                     this.fazerLogin(res.result)
                 }
 
                 if(this.acao == 'cadastro'){
                     this.fazerCadastro(res.result)  
+                }
+
+                if(this.acao == 'editarCadastroDeUsuario'){
+                    this.editarCadastroDeUsuario(res.result)
+                }
+
+                if(this.acao == 'deletarUsuario'){
+                    this.deletarUsuario(res.result)
                 }
                 
                 this.matricula = '';
@@ -77,6 +86,8 @@
                         }
                     }
                 }
+                sessionStorage.apelido = this.apelido
+                sessionStorage.matricula = this.matricula
                 this.$emit('enviaDados', [this.matricula, this.nome, this.apelido, this.setor, resultado, msg])
             },
 
@@ -103,7 +114,7 @@
                 if(usuarioNaoCadastrado){
                     let dadosJson = JSON.stringify(dados)
 
-                    const req = await fetch('http://localhost:3000/api/usuario',{
+                    const req = await fetch('https://apicontroledematerial.onrender.com/api/usuario',{
                         method: "POST",
                         headers:{"content-Type":"application/json"},
                         body:dadosJson
@@ -114,6 +125,71 @@
                     resultado = true
                 }
                 this.$emit('enviaDados', [this.matricula, this.nome, this.apelido, this.setor, resultado, msg])
+            },
+            
+            async editarCadastroDeUsuario(res){
+                let id = ''
+                let msg = ''
+                let resultado = ''
+                for(i in res){
+                    if(res[i].matricula == this.matricula){
+                        id = res[i].id
+                        this.matricula = res[i].matricula
+                        this.nome = res[i].nome
+                        this.apelido = res[i].apelido
+                        this.setor = res[i].setor
+                        break
+                    }
+                }
+
+                if(id == ''){
+                    msg = 'Usuário não encontrado na base de dados!'
+                }else{
+                    const dados = {
+                        matricula: this.matricula,
+                        nome: this.nome,
+                        apelido: this.apelido,
+                        setor: this.setor
+                    }
+                    const dadosJson = JSON.stringify(dados);
+                    const req = await fetch(`https://apicontroledematerial.onrender.com/api/usuario/${id}`,{
+                        method: "PATCH",
+                        headers: {"content-Type":"application/json"},
+                        body: dadosJson
+                    });
+
+                    this.$emit('enviaDados', [this.matricula, this.nome, this.apelido, this.setor, resultado, msg])
+                }
+            },
+
+            async deletarUsuario(res){
+                let id = ''
+                let msg = ''
+                let resultado = ''
+                for(i in res){
+                    if(res[i].matricula == this.matricula){
+                        id = res[i].id
+                        break
+                    }
+                }
+
+                if(id == ''){
+                    msg = 'Usuário não encontrado na base de dados!'
+                }else{
+                    const dados = {
+                        matricula: this.matricula,
+                        nome: this.nome,
+                        apelido: this.apelido,
+                        setor: this.setor
+                    }
+                    const dadosJson = JSON.stringify(dados);
+                    const req = await fetch(`https://apicontroledematerial.onrender.com/api/usuario/${id}`,{
+                        method: "DELETE",
+                        headers: {"content-Type":"application/json"}
+                    });
+
+                    this.$emit('enviaDados', [this.matricula, this.nome, this.apelido, this.setor, resultado, msg])
+                }
             }
         }
     }

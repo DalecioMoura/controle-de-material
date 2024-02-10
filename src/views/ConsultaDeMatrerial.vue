@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="div-principal">
         <Menu />
         <div id="div-form" v-show="!estado">
             <FormPrincipal msg="Consultar Material" :rota="habilitar_componente" @enviaDados="recebeDados"/>
@@ -37,7 +37,6 @@
             recebeDados(arg){
                 this.itens = arg
                 this.estado = true
-                console.log('Odado chegou na view: ' + this.itens)
             },
             resetaEstado(){
                 this.estado = false
@@ -54,6 +53,10 @@
 </script>
 
 <style scoped>
+#div-principal{
+    margin-bottom: 30px;
+}
+
 #div-form{
     display: inline-block;
     text-align: right;

@@ -71,9 +71,8 @@ import { renderSlot } from 'vue'
 
         methods:{
             async enviarConsulta(){
-                const req = await fetch('http://localhost:3000/api/itens')
+                const req = await fetch('https://apicontroledematerial.onrender.com/api/itens')
                 const res = await req.json()
-
                 if(this.rota == 'consulta')
                     this.exibirLista(res.result)
                 if(this.rota == 'cadastro')
@@ -86,7 +85,6 @@ import { renderSlot } from 'vue'
                     this.editar(res.result)
                 if(this.rota == 'excluir')
                     this.excluir(res.result)
-                console.log(this.rota)
             },
 
             limpaDados(){
@@ -128,21 +126,18 @@ import { renderSlot } from 'vue'
                 }
                 
                 if(itemNaoCadastrado){
-                    console.log('cheguei aqui')
                     const dadosJson = JSON.stringify(dados)
-                    const req = await fetch('http://localhost:3000/api/item',{
+                    const req = await fetch('https://apicontroledematerial.onrender.com/api/item',{
                         method: "POST",
                         headers: {"Content-Type":"application/json"},
                         body: dadosJson
                     })
                     const res = await req.json()
-                    console.log(dadosJson)
-                    console.log(res)
                     if(res.error){
                         msg = ('Ítem não cadastrado!' + res.error)
                     }else{
-                        res.result.st = JSON.parse(res.result.st)
-                        this.itens.push(res.result)
+                        //res.result.st = JSON.parse(res.result.st)
+                        this.itens.push(res.result[0])
                         msg = 'Ítem cadastrado com sucesso!'
                     }
                     this.$emit('enviaDados', [this.itens,msg,estado])
@@ -157,7 +152,7 @@ import { renderSlot } from 'vue'
                 if(this.codigo != '' && this.codigo != null){
                     for(let i = 0; i < res.length; i++){
                         if(res[i].codigo.toUpperCase() == this.codigo.toUpperCase()){
-                            res[i].st = JSON.parse(res[i].st)
+                            //res[i].st = JSON.parse(res[i].st)
                             this.itens.push(res[i])
                             produtoExiste = true
                             break
@@ -167,7 +162,7 @@ import { renderSlot } from 'vue'
                 else if(this.tipo != '' && this.tipo != null)
                     res.forEach(item => {
                         if(item.tipo.toUpperCase() == this.tipo.toUpperCase()){
-                            item.st = JSON.parse(item.st)
+                            //item.st = JSON.parse(item.st)
                             this.itens.push(item)
                             produtoExiste = true
                         }
@@ -175,7 +170,7 @@ import { renderSlot } from 'vue'
                 else if(this.localizacao != '' && this.localizacao != null)
                     res.forEach(item => {
                         if(item.localizacao.toUpperCase() == this.localizacao.toUpperCase()){
-                            item.st = JSON.parse(item.st)
+                            //item.st = JSON.parse(item.st)
                             this.itens.push(item)
                             produtoExiste = true
                         }
@@ -183,7 +178,7 @@ import { renderSlot } from 'vue'
                 else if(this.modelo != '' && this.modelo != null)
                     res.forEach(item => {
                         if(item.modelo.toUpperCase() == this.modelo.toUpperCase()){
-                            item.st = JSON.parse(item.st)
+                            //item.st = JSON.parse(item.st)
                             this.itens.push(item)
                             produtoExiste = true
                         }
@@ -191,16 +186,15 @@ import { renderSlot } from 'vue'
                 else if(this.fabricante != '' && this.fabricante != null)
                     res.forEach(item => {
                         if(item.fabricante.toUpperCase() == this.fabricante.toUpperCase()){
-                            item.st = JSON.parse(item.st)
+                            //item.st = JSON.parse(item.st)
                             this.itens.push(item)
                             produtoExiste = true
                         }
                     });
                 if(produtoExiste == false){
-                    console.log(res)
-                    for(let i in res){
+                    /*for(let i in res){ 
                         res[i].st = JSON.parse(res[i].st)
-                    }
+                    }*/
                     this.itens=res
                 }
                 this.$emit('enviaDados', this.itens)
@@ -209,14 +203,16 @@ import { renderSlot } from 'vue'
 
             async retirar(resp){
                 let id = ''
+                let exibirItem = false
+                let msg = ''
                 const dados = {
                     "st":"Indisponível",
-                    "nome":"Dalecio",
+                    "nome":sessionStorage.apelido,
+                    "matricula":sessionStorage.matricula,
                     "destino":this.destino,
                     "data":moment().format("DD/MM/YYYY")
                 }
-                /*const req = await fetch('http://localhost:3000/materiais')
-                const res = await req.json()*/
+
                 for(let i = 0; i < resp.length; i++){
                     if(resp[i].codigo == this.codigo){
                         id = resp[i].id
@@ -225,29 +221,38 @@ import { renderSlot } from 'vue'
                 }
                 if(id != ''){
                     const dadosJson = JSON.stringify({status:dados})
-                    
-                    const req = await fetch(`http://localhost:3000/api/item/${id}`,{
+                    console.log(dados.nome)
+                    console.log(dados.matricula)
+                    console.log(dados[2])
+                    console.log(dados[3])
+                    console.log(dadosJson)
+                    const req = await fetch(`https://apicontroledematerial.onrender.com/api/item/${id}`,{
                         method: "PATCH",
                         headers:{"Content-Type":"application/json"},
                         body: dadosJson
                     })
                     const res = await req.json()
-                    res.result.st = JSON.parse(res.result.st)
-                    this.itens.push(res.result)
-                    console.log(res.result)
+                    //res.result.st = JSON.parse(res.result.st)
+                    this.itens.push(res.result[0])
+                    msg = 'Reserva efetuada com sucesso'
+                    exibirItem = true
+                    this.$emit('enviaDados', [this.itens, msg, exibirItem])
+                    this.limpaDados()
                 }else{
-                    console.log("Item não encontrado!")
-                }
-                
-                this.$emit('enviaDados',this.itens)
-                this.limpaDados()   
+                    msg = "Item não encontrado!"
+                    exibirItem = false
+                    this.$emit('enviaDados', [this.itens, msg, exibirItem])
+                }    
             },
 
             async devolver(resp){
                 let id = ''
+                let exibirItem = false
+                let msg = ''
                 const dados = {
                     "st":"Disponível",
                     "nome":"",
+                    "matricula":"",
                     "destino":"",
                     "data":""
                 }
@@ -259,27 +264,30 @@ import { renderSlot } from 'vue'
                     }       
                 }
                 if(id != ''){
-                    console.log(id)
-                    console.log(dados)
                     const dadosJson = JSON.stringify({status:dados})
-                    const req = await fetch(`http://localhost:3000/api/item/${id}`,{
+                    const req = await fetch(`https://apicontroledematerial.onrender.com/api/item/${id}`,{
                         method: "PATCH",
                         headers:{"Content-Type":"application/json"},
                         body: dadosJson
                     })
                     const res = await req.json()
-                    res.result.st = JSON.parse(res.result.st)
-                    this.itens.push(res.result)
+                    //res.result.st = JSON.parse(res.result.st) //usar com mysql
+                    this.itens.push(res.result[0])
+                    msg = 'Devolução efetuada com sucesso'
+                    exibirItem = true
+                    this.$emit('enviaDados', [this.itens, msg, exibirItem])
+                    this.limpaDados()
+                }else{
+                    msg = "Item não encontrado!"
+                    exibirItem = false
+                    this.$emit('enviaDados', [this.itens, msg, exibirItem])
                 }
-                this.$emit('enviaDados',this.itens)
-                this.limpaDados()
             },
 
             async editar(resp){
                 let msg = ''
-                console.log('Editar item')
+                let exibirItem = false
                 
-
                 if(!this.estado){
                     for(let i = 0; i < resp.length; i++){
                         if(resp[i].codigo == this.codigo){
@@ -292,11 +300,11 @@ import { renderSlot } from 'vue'
                             this.fabricante = resp[i].fabricante
                             this.descricao = resp[i].descricao
                             this.estado = true
+                            exibirItem = false
                             break
                         }
                     }
-                    this.$emit('enviaDados', [this.itens,msg,this.estado])
-                    console.log('estado 1: '+this.estado)
+                    this.$emit('enviaDados', [this.itens,msg,this.estado, exibirItem])
                     return
                 }
                 if(this.estado){
@@ -313,29 +321,21 @@ import { renderSlot } from 'vue'
                             //"status":{"st":"Disponível", "nome":"", "destino":"", "data":""}
                         }
 
-                        console.log(this.id)
-                        console.log(dados)
-
                         const dadosJson = JSON.stringify(dados)
-                        const req = await fetch(`http://localhost:3000/api/item/${this.id}`,{
-                            method: "PATCH",
+                        const req = await fetch(`https://apicontroledematerial.onrender.com/api/item/${this.id}`,{
+                            method: "PUT",
                             headers:{"Content-Type":"application/json"},
                             body: dadosJson
                         })
 
                         const res = await req.json()
-                        res.result.st = JSON.parse(res.result.st)
-                        console.log('Ítem: '+res)
-                        console.log('Ítem: '+res.result)
-                        this.itens.push(res.result)
+                        //res.result.st = JSON.parse(res.result.st)
+                        this.itens.push(res.result[0])
                         msg = 'Dados atualizados com sucesso!'
+                        exibirItem = true
                     }
-                    console.log('Ítem: '+this.itens)
-                    console.log('Ítem: '+JSON.stringify(this.itens))
-                    console.log('Ítem: '+this.itens.toString())
                     this.estado=false
-                    console.log('estado 2: '+this.estado)
-                    this.$emit('enviaDados', [this.itens,msg,this.estado])
+                    this.$emit('enviaDados', [this.itens,msg,this.estado, exibirItem])
                     this.limpaDados()
 
                     
@@ -343,7 +343,6 @@ import { renderSlot } from 'vue'
             },
 
             async excluir(resp){
-                console.log('Excluir item')
                 for(let i = 0; i < resp.length; i++){
                     if(resp[i].codigo == this.codigo){
                         this.id = resp[i].id
@@ -352,8 +351,7 @@ import { renderSlot } from 'vue'
                 } 
                 
                 if(this.id!=''){
-                    console.log('id: '+this.id)
-                    await fetch(`http://localhost:3000/api/item/${this.id}`,{
+                    await fetch(`https://apicontroledematerial.onrender.com/api/item/${this.id}`,{
                         method: "DELETE",
                         headers:{"Content-Type":"application/json"}
                     })
